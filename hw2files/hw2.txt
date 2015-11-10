@@ -1,0 +1,10 @@
+I. Formal Question 
+
+This foma solution works on L = {epsilon, aba, abba, bab, baab, ababa, ... } and not various other combinations {bba, aaa, aab, aabb}:
+
+	regex [ ab[a*] | ba[b*] ]*;
+
+II. Implementation
+
+I wasn't able to figure out how to replace items in a set with their equivalent in another set, so I used '*' as a stopgap for where an accent should be inserted. Besides this inconsistency, the implementation should work.
+(see code)

@@ -1,0 +1,55 @@
+Multichar_Symbols [NEG] [1P] [2P] [3P] [SG] [PL] [ITERATIVE] [DURATIVE] [PAST] [PRES] [HEARSAY]
+ 
+LEXICON Root
+
+Negation;
+
+LEXICON Negation
+
+[NEG]:ne 	Durative;
+			Durative;
+
+LEXICON Durative
+
+			   Prefix;
+[DURATIVE]:maa Prefix;
+
+LEXICON Prefix
+
+[3P]:s 	3pVerb;
+		1p2pVerb;
+
+LEXICON 3pVerb
+
+kata    3pTense;
+!lupo   3pTense;
+!pele 	3pTense;
+!sape   3pTense;
+
+LEXICON 1p2pVerb
+
+kata    1p2pTense;
+lupo   	1p2pTense;
+!pele 	1p2pTense;
+!sape   1p2pTense;
+
+LEXICON 3pTense
+
+[PRES]:0	Num;
+[PAST]:n 	Num;
+
+LEXICON 1p2pTense
+
+[PRES]:0	Suffix;
+[PAST]:n 	Suffix;
+
+Lexicon Suffix
+
+[1P]:tI 	Num;
+[2P]:kE 	Num;
+
+LEXICON Num
+
+[SG]:0 #;
+[PL]:s #;
+

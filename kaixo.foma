@@ -1,0 +1,23 @@
+def C [p | t | k | b | d | g | s | z | f | v | l | m | n | ʃ | ʒ | ŋ ];
+def V [a | e | i | o | u];
+
+read lexc kaixo.lexc
+eliminate flags
+def Lex;
+
+# phonology
+def Ng n -> ŋ || ?* _ k ;
+
+def PhonE E -> o || ?*[{oŋ}|o]k _ ?* ;
+def PhonI I -> u || ?*[{on}|o]t _ ?* ;
+def PhonIrr PhonE .o. PhonI;
+
+def PhonNom E -> e , I -> i || ?* _ ?* ;
+
+# hearsay
+
+# iterative
+# negation
+
+def Grammar Lex .o. Ng .o. PhonIrr .o. PhonNom;
+regex Grammar;

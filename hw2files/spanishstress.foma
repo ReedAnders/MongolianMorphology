@@ -1,0 +1,47 @@
+# Ling7800 HW2 skeleton
+
+define V [a|e|i|o|u];
+define Vaccent [á|é|í|ó|ú];
+
+define C [b|v|c|d|f|g|h|j|k|l|m|ñ|p|q|r|t|v|x|y|z];
+define Cfull [b|v|c|d|f|g|h|j|k|l|m|ñ|n|p|q|r|s|t|v|x|y|z];
+define NS [n|s];
+
+# If Weak next to Strong, same syllable
+define WeakV [i|u];
+
+# If Strong next to Strong, different syllable
+define StrongV [a|e|o];
+
+define TestWords {aceite}|{cierra}|{causa}|{viuda}|{fuimos}|
+                 {diluir}|{bombear}|{polea}|{empleo}|
+                 {finlandia}|{farmacia}|{indio}|{azafata}|
+                 {comen}|{gratis}|{feliz}|{epidemia}|
+                 {cantabais}|{bailar}|{peine}|{boina}|
+                 {pausa}|{deuda}|{familia}|{bien}|{kiosco}|
+                 {ecuador}|{sueco}|{antiguo};
+
+# Read in words from file and create automaton
+define CorrectWords @txt"spanishstress-correct.txt" ;
+
+# Put your definition of SpanishStress here
+
+# On the penultimate syllable if the word ends in a vowel, n, or s. (e.g. mesa, andan, casas).
+define EndInVNS V -> {*} ||  ?* _ [Cfull+][V+|NS]+.#. ;
+
+# On the final syllable if the words ends in a consonant other than n or s. (e.g. andar, cazar).
+define EndInC V -> {*} ||  ?* _ C.#. ;
+
+# One syllable
+define OneSyl StrongV -> {*} || Cfull WeakV _ Cfull.#. ;
+
+define SpanishStress EndInC .o. EndInVNS .o. OneSyl;
+
+# You can test how many correct and incorrect predictions you get by
+# a little bit of finite-state calculus:
+#
+# How many predictions are correct:
+regex [TestWords .o. SpanishStress].l;
+
+# How many are incorrect:
+# regex [TestWords .o. SpanishStress].l - CorrectWords;

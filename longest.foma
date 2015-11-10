@@ -1,0 +1,6 @@
+def W {cat}|{dog}|{horse}|{mouse}|{frog};
+
+def LongestW(X) X - X .o. [?* ?:0 ?*]+ .o. ?:?*].l ;
+# def ShortestW [?* ?:0 ?*];
+
+regex Longest(W);

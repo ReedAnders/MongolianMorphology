@@ -1,0 +1,23 @@
+Multichar_Symbols [NEG] [1P] [2P] [3P] [SG] [PL] [ITERATIVE] [DURATIVE] [PAST] [PRES] [HEARSAY]
+
+
+ROOT -> PREFIX 
+
+PREFIX ( ) -> kata -> PRES (0) -> SUFFIX (ti) #
+PREFIX ( ) -> kata -> PAST (n) -> SUFFIX (ti) #
+PREFIX ( ) -> kata -> PRES (0) -> SUFFIX (ti) -> PL (s) #
+PREFIX ( ) -> kata -> PAST (n) -> SUFFIX (ti) -> PL (s) #
+
+PREFIX ( ) -> kata -> PRES (0) -> SUFFIX (ke) #
+PREFIX ( ) -> kata -> PAST (n) -> SUFFIX (ke) #
+PREFIX ( ) -> kata -> PRES (0) -> SUFFIX (ke) -> PL (s) #
+PREFIX ( ) -> kata -> PAST (n) -> SUFFIX (ke) -> PL (s) #
+
+PREFIX (s) -> kata -> PRES (0) #
+PREFIX (s) -> kata -> PRES (0) -> PL (s) #
+PREFIX (s) -> kata -> PAST (n) #
+PREFIX (s) -> kata -> PAST (n) -> PL (s) #
+
+DURATIVE (Maa)
+
+PREFIX (s) -> Dur (Maa) -> kata -> ...

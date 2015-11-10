@@ -1,0 +1,23 @@
+r# Our lexicon
+
+read lexc engredup.lexc
+define Lex
+
+def C [b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x];
+def V [a|e|i|o|u];
+
+# Define sibilants orthographically
+def Sib [s | s h | z | x | c h ];
+
+def MarkReduplicator  ;
+def InsertReduplicand ;
+def RemoveMarks ;
+
+# e-epenthesis rule: bus+s > buses, etc.
+def ERule "+" -> e || Sib _ Sib ;
+def YRule y -> i e || C _ "+" ;
+def Cleanup "+" -> 0 ;
+
+def Grammar _eq(Lex .o. MarkReduplicator .o. InsertReduplicand, %[, %]) .o. RemoveMarks .o. ERule .o. YRule .o. Cleanup ;
+
+regex Grammar;

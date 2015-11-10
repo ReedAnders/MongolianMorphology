@@ -1,0 +1,48 @@
+LEXICON Root
+
+Verb ;
+Noun ;
+Prefix ;
+
+LEXICON Prefix
+
+[ANTI]:anti	    Noun;
+[PROTO]:proto   Noun;
+[PSEUDO]:pseudo Noun;
+
+LEXICON Noun
+
+cat    NInfl;
+dog    NInfl;
+horse  NInfl;
+mouse  NInfl;
+mouse[N][Plural]:mice #;
+fish   NInfl;
+bus    NInfl;
+fox    NInfl;
+
+LEXICON Verb
+
+run	   VInfl;
+walk   VInfl;
+try    VInfl;
+bus[V][3pSgPres]:busses #;
+run[N][Singular]:runner #;
+run[N][Plural]:runners #;
+run[V][Past]:ran #;
+try[V][Past]:tried #;
+
+LEXICON NInfl
+
+[N][Singular]:0 #;
+[N][Plural]:+s  #;
+
+LEXICON VInfl
+
+[V][Infinitive]:0 #;
+[V][3pSgPres]:+s #;
+[V][Past]:+ed #;
+[N][Singular]:+er #;
+[N][Plural]:+ers #;
+
+

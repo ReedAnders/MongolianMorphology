@@ -1,0 +1,27 @@
+Multichar_Symbols [N] [Singular] [Plural] [ContrastRep]
+
+LEXICON Root
+
+Verb ;
+Noun ;
+
+LEXICON Noun
+
+cat    NInfl1;
+dog    NInfl1;
+horse  NInfl1;
+mouse  NInfl1;
+fish   NInfl1;
+bus    NInfl1;
+fox    NInfl1;
+job    NInfl1;
+
+LEXICON NInfl1
+
+[N]:0                           NInfl2;
+[N][ContrastRep]:0[ContrastRep] NInfl2; ! Note alignment
+
+LEXICON NInfl2
+
+[Singular]:0 #;
+[Plural]:+s  #;

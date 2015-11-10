@@ -1,0 +1,35 @@
+# Our lexicon
+
+def C [b|c|d|f|g|h|k|l|m|n|p|q|r|s|t|v|w|x|z];
+def V [a|e|i|o|u|y];
+
+def Word [C|V]+;
+
+# Substitute all transitions with "[GUESSNOUN]" in-place
+# with Word before defining the lexicon
+
+read lexc engguesser.lexc
+define Lex
+
+def Ins [..] -> "[GUESS]" || "[GUESSNOUN]" ?* _ .#.;
+def Lex [Lex.i .o. Ins].i;
+
+regex Lex;
+substitute defined Word for "[GUESSNOUN]"
+def Lex
+
+# Define sibilants orthographically
+def Sib [s | s h | z | x | c h ];
+
+# e-epenthesis rule: bus+s > buses, etc.
+def ERule "+" -> e || Sib _ Sib ;
+def YRule y -> i e || C _ "+" ;
+def Cleanup "+" -> 0 ;
+
+def Grammar Lex .o. ERule .o. YRule .o. Cleanup ;
+
+def GuessGr $["[GUESS]"] .o. Grammar;
+def RealGr ~$["[GUESS]"] .o. Grammar;
+def Filter ~[RealGr.l];
+
+regex [GuessGr .o. Filter] | RealGr;
