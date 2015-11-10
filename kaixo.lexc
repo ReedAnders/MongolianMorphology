@@ -2,12 +2,7 @@ Multichar_Symbols [NEG] [1P] [2P] [3P] [SG] [PL] [ITERATIVE] [DURATIVE] [PAST] [
  
 LEXICON Root
 
-Negation;
-
-LEXICON Negation
-
-[NEG]:ne 	Durative;
-			Durative;
+Durative;
 
 LEXICON Durative
 
