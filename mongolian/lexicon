@@ -1,0 +1,19 @@
+Derivational morphology
+
+Flags:
+
+@U.PROFESSION-SOFT.ON@ @U.PROFESSION-SOFT.OFF@
+
+Nouns:
+
+Stem
+
+@U.PROFESSION-SOFT.ON@[n-medicine]:em
+@U.PROFESSION-SOFT.OFF@[n-gold]:altən
+@U.PROFESSION-SOFT.OFF@[n-work]:aǰil
+@U.PROFESSION-SOFT.OFF@[n-industry]:ɯildər
+
+Noun/Adj -> Noun
+
+@U.PROFESSION-SOFT.ON@[PROFESSION-NOUN]:či
+@U.PROFESSION-SOFT.OFF@[PROFESSION-NOUN]:čiŋ

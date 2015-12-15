@@ -1,0 +1,40 @@
+Multichar_Symbols [PL] [DL] [CAUSATIVE-VERB] [TRANSATIVE-VERB] [RECIPROCAL-VERB] [PROFESSION-NOUN] @U.PROFESSIONSOFT.ON@ @U.PROFESSIONSOFT.OFF@  @P.VowelA.ON@ @D.VowelA@ @P.VowelB.ON@ @D.VowelB@ @P.VowelC.ON@ @D.VowelC@ @P.VowelD.ON@ @D.VowelD@ @P.VowelE.ON@ @D.VowelE@ @P.VowelF.ON@ @D.VowelF@ @P.VowelG.ON@ @D.VowelG@ @P.VowelH.ON@ @D.VowelH@
+
+LEXICON Root
+
+Noun;
+!Verb;
+
+Lexicon Noun
+
+@P.VowelD.ON@[n-house]:ger								NDerivation;
+!@P.VowelD.ON@@U.PROFESSIONSOFT.ON@[n-medicine]:em		NDerivation;
+!@P.VowelA.ON@@U.PROFESSIONSOFT.OFF@[n-gold]:altən		NDerivation;
+!@P.VowelA.ON@@U.PROFESSIONSOFT.OFF@[n-work]:aǰil		NDerivation;
+!@P.VowelG.ON@@U.PROFESSIONSOFT.OFF@[n-industry]:ɯildər	NDerivation;
+
+Lexicon Verb
+
+bari 	VDerivation;
+
+Lexicon 	NDerivation
+
+@U.PROFESSIONSOFT.ON@[PROFESSION-NOUN]:či 		Inflection;
+@U.PROFESSIONSOFT.OFF@[PROFESSION-NOUN]:čiŋ		Inflection;
+[TRANSATIVE-VERB]:lE							VDerivation;
+												Inflection;
+
+
+Lexicon 	VDerivation
+
+@D.VowelC@@D.VowelB@@D.VowelC@[CAUSATIVE-VERB]:ɯɯl						Inflection;
+[RECIPROCAL-VERB]:idE													NDerivation;
+@D.VowelC@@D.VowelD@@D.VowelE@@D.VowelE@[VERB-TO-NOUN]:aa				NDerivation;
+																		Inflection;
+
+
+Lexicon Inflection
+
+[PL]:d 					# ;
+[DL]:tə 				# ;
+						# ;

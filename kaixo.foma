@@ -6,18 +6,24 @@ eliminate flags
 def Lex;
 
 # phonology
+
 def Ng n -> ŋ || ?* _ k ;
 
 def PhonE E -> o || ?*[{oŋ}|o]k _ ?* ;
 def PhonI I -> u || ?*[{on}|o]t _ ?* ;
 def PhonIrr PhonE .o. PhonI;
+def PhonNom E -> e , I -> i;
 
-def PhonNom E -> e , I -> i || ?* _ ?* ;
-
-# hearsay
+def Phon PhonIrr .o. PhonNom .o. Ng;
 
 # iterative
-# negation
 
-def Grammar Lex .o. Ng .o. PhonIrr .o. PhonNom;
-regex Grammar;
+def Atomic [C* V+];
+def Crop Atomic @-> %< ... %> || "[ITERATIVE]" _ ?*;
+def IterativeLex Lex .o. Crop;
+
+def ReplaceIter "[ITERATIVE]" -> %< Atomic %>;
+
+def Duplicate _eq( [IterativeLex .o. ReplaceIter] , %< , %>) .o. [%>|%<] -> 0;
+
+regex Duplicate .o. Phon;

@@ -1,0 +1,22 @@
+# Simple OT syllabification
+# Following Gerdemann & Hulden (2012)
+# We have three constraints:
+# Peak >> Complex >> Onset
+
+def V [a|e|i|o|u];
+def C [b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|z];
+
+def Gen         ?+ -> %[ ... %] ;
+def MarkPeak    [..] -> "*" || %[ _ \V* %] , %[ _ C* V C* V;
+def MarkComplex [..] -> "*" || %[ _ C C , C C _ %];
+def MarkOnset   [..] -> "*" || %[ _ V;
+
+# Implement one constraint by composing [Gen .o. TheConstraint] .o. Filter;
+# Where Filter removes those candidates that can be produced by 
+# adding at least one violation to each candidate (and shuffling brackets)
+
+def Worsen [?* 0:"*" ?*];
+
+def AddOne Worsen .o. Gen;
+
+regex AddOne;

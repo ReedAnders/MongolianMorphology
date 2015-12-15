@@ -1,0 +1,41 @@
+define V [a|e|i|o|u];
+define C [b|v|c|d|f|g|h|j|k|l|m|n|ñ|p|q|r|s|t|v|x|y|z];
+define S [a|e|o];  # Strong vowels
+define W [i|u];    # Weak vowels
+
+define TestWords {aceite}|{cierra}|{causa}|{viuda}|{fuimos}|
+		 {diluir}|{bombear}|{polea}|{empleo}|
+		 {finlandia}|{farmacia}|{indio}|{azafata}|
+		 {comen}|{gratis}|{feliz}|{epidemia}|
+		 {cantabais}|{bailar}|{peine}|{boina}|
+		 {pausa}|{deuda}|{familia}|{bien}|{kiosco}|
+                 {ecuador}|{sueco}|{antiguo};
+
+# First, we mark off all syllable nuclei (single V + diphthongs)
+# For example, viuda > v[iu]d[a]
+def Mark    [V (V) - S S] @-> %[ ... %];
+
+# Then we mark the syllables to be stressed with a = -symbol
+# For example, v[iu]d[a] > v[iu=]d[a]
+def Stress1 [..] -> = || _ %] \%]* %] [n|s|0] .#. ; # Penult
+def Stress2 [..] -> = || .#. ~$= _ %] \%]* .#. ;    # The elsewhere case
+
+# We now convert the marked, bracketed syllables to
+# produce the accented vowel, e.g. v[iu=]d[a] > viúda
+def Convert a -> á , e -> é, o -> ó || _ (W) = %]  .o. 
+            i -> í, u -> ú || .#. ~$[á|é|ó] _ = %] .o. %[|%]|= -> 0;
+
+def RegularStress Mark .o. Stress1 .o. Stress2 .o. Convert;
+
+regex TestWords .o. RegularStress;
+lower-words
+
+define CorrectWords @txt"spanishstress-correct.txt" ;
+
+# How many predictions are correct:
+echo CORRECT PREDICTIONS (SHOULD BE 29 paths)
+regex [TestWords .o. RegularStress].l & CorrectWords;
+
+# How many are incorrect:
+echo INCORRECT PREDICTIONS (SHOULD be 0 paths)
+regex [TestWords .o. RegularStress].l - CorrectWords;

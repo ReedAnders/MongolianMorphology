@@ -1,50 +1,59 @@
-Multichar_Symbols [NEG] [1P] [2P] [3P] [SG] [PL] [ITERATIVE] [DURATIVE] [PAST] [PRES] [HEARSAY]
+Multichar_Symbols [NEG] [1P] [2P] [3P] [SG] [PL] [ITERATIVE] [DURATIVE] [PAST] [PRES] [HEARSAY] @U.HSY.ON@ @U.HSY.OFF@ @U.3P.OFF@ @U.3P.ON@
  
 LEXICON Root
 
-Durative;
+Negation;
+
+LEXICON Negation
+
+[NEG]:na 	Iterative;
+			Iterative;
+
+LEXICON Iterative
+
+[ITERATIVE]		HearsayPre;
+				HearsayPre;
+
+LEXICON HearsayPre
+
+@U.HSY.ON@[HEARSAY]:bla 	Durative;
+@U.HSY.OFF@					Durative;
 
 LEXICON Durative
 
-			   Prefix;
-[DURATIVE]:maa Prefix;
+[DURATIVE]:maa	Prefix;
+				Prefix;
 
 LEXICON Prefix
 
-[3P]:s 	3pVerb;
-		1p2pVerb;
+@U.3P.ON@[3P]:s 	Verb;
+@U.3P.OFF@          Verb;
 
-LEXICON 3pVerb
+LEXICON Verb
 
-kata    3pTense;
-!lupo   3pTense;
-!pele 	3pTense;
-!sape   3pTense;
+kata    Tense;
+lupo   Tense;
+pele 	Tense;
+sape   Tense;
 
-LEXICON 1p2pVerb
-
-kata    1p2pTense;
-lupo   	1p2pTense;
-!pele 	1p2pTense;
-!sape   1p2pTense;
-
-LEXICON 3pTense
-
-[PRES]:0	Num;
-[PAST]:n 	Num;
-
-LEXICON 1p2pTense
+LEXICON Tense
 
 [PRES]:0	Suffix;
 [PAST]:n 	Suffix;
 
 Lexicon Suffix
 
-[1P]:tI 	Num;
-[2P]:kE 	Num;
+@U.3P.OFF@[1P]:tI 	Num;
+@U.3P.OFF@[2P]:kE 	Num;
+@U.3P.ON@           Num;
 
 LEXICON Num
 
-[SG]:0 #;
-[PL]:s #;
+[SG]:0 HearsaySuf;
+[PL]:s HearsaySuf;
+
+LEXICON HearsaySuf
+
+@U.HSY.OFF@				#;
+@U.HSY.ON@[HEARSAY]:bla #;
 

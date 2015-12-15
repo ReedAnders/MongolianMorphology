@@ -1,0 +1,7 @@
+
+
+def Morphology [{deconstruction}|{de+construction}|{de+construct+ion}] "[N]" "[Sg]" .x. {deconstruction};
+
+def Worsen [?* 0:"+" ?*];
+
+regex Morphology.i .o. ~[Morphology.i .o. Worsen].l;

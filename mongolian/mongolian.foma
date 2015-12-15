@@ -1,0 +1,10 @@
+
+#read lexc mongolian.lexc
+read lexc mongolian.lexc
+eliminate flags
+def Lex;
+
+def deleteE E -> 0 || ?+ _ ?+;
+def keepE E -> ə;
+
+regex Lex .o. deleteE .o. keepE;
