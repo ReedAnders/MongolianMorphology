@@ -13,7 +13,7 @@ Lexicon Noun
 !@P.VowelD.ON@[n-house]:ger								NounToNoun;
 !@P.VowelE.ON@[n-neck]:xɯzɯɯn							NounToNoun;
 !@P.VowelG.ON@@U.PROFESSIONSOFT.OFF@[n-industry]:ɯildər	NounToNoun;
-@P.VowelD.ON@[n-house]:ger								NounToNoun;
+!@P.VowelD.ON@[n-house]:ger								NounToNoun;
 !@P.VowelD.ON@[n-finger]:xurunn							NounToNoun;
 !@P.VowelD.ON@@U.PROFESSIONSOFT.ON@[n-medicine]:em		NounToNoun;
 !@P.VowelA.ON@@U.PROFESSIONSOFT.OFF@[n-gold]:altən		NounToNoun;
@@ -28,7 +28,6 @@ Lexicon 	NounToNoun
 @U.PROFESSIONSOFT.OFF@[PROFESSION-NOUN]:čiŋ						NounToVerb;
 @D.VowelA@@D.VowelB@@D.VowelC@[COLLECTION-NOUN]:čɯɯd			NounToVerb;
 @D.VowelC@@D.VowelD@@D.VowelE@@D.VowelE@[COLLECTION-NOUN]:čuud	NounToVerb;
-[TRANSATIVE-VERB]:lE											NounToVerb;
 [COVERING-NOUN]:bči												NounToVerb;
 [DIMINUTIVE-NOUN]:ncər											NounToVerb;
 																NounToVerb;
@@ -36,7 +35,7 @@ Lexicon 	NounToNoun
 Lexicon 	VerbToNoun
 
 @D.VowelC@@D.VowelD@@D.VowelE@@D.VowelF@@P.VowelA.ON@[VERB-TO-NOUN]:aa				NounToVerb;
-																							 #;
+																					VInflection;
 																
 Lexicon 	VerbToVerb
 
@@ -46,11 +45,16 @@ Lexicon 	VerbToVerb
 																					
 Lexicon 	NounToVerb
 
-Inflection;
+[TRANSATIVE-VERB]:lE																VerbToVerb;
+																					NInflection;
 
 
-Lexicon Inflection
+Lexicon VInflection
 
-![PL]:d 				# ;
+						# ;
+
+Lexicon NInflection
+
+[PL]:d 					# ;
 ![DL]:tə 				# ;
 						# ;
